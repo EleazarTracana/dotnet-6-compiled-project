@@ -1,0 +1,14 @@
+[Unit]
+Description=Start the Website
+
+[Service]
+WorkingDirectory=/var/www/app
+ExecStart=/usr/bin/dotnet/dotnet /var/www/app/app.dll
+Restart=always
+RestartSec=10
+SyslogIdentifier=website
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
